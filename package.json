@@ -1,6 +1,6 @@
 {
   "name": "@nbaglivo/ctx",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Build curated markdown context files from tagged notes",
   "author": "Nicolas Baglivo <nicolas.baglivo@gmail.com>",
   "type": "module",
