@@ -1,0 +1,17 @@
+<svg width="420" height="120" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="420" height="120" rx="20" fill="#0B0D12"/>
+  
+  <!-- Prompt symbol -->
+  <path d="M52 60L82 42V50L63.5 60L82 70V78L52 60Z" fill="#E6EDF3"/>
+  
+  <!-- ctx text -->
+  <text x="110" y="76"
+        font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace"
+        font-size="44"
+        font-weight="600"
+        letter-spacing="-1.5"
+        fill="#E6EDF3">ctx</text>
+  
+  <!-- subtle cursor/accent -->
+  <rect x="245" y="38" width="10" height="44" rx="2" fill="#7CFFB2"/>
+</svg>

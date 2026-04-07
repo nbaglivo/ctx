@@ -1,0 +1,46 @@
+{
+  "name": "@nbaglivo/ctx",
+  "version": "0.1.0",
+  "description": "Build curated markdown context files from tagged notes",
+  "author": "Nicolas Baglivo <nicolas.baglivo@gmail.com>",
+  "type": "module",
+  "bin": {
+    "ctx": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "logo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nbaglivo/ctx.git"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsup --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "context",
+    "markdown",
+    "cli",
+    "notes",
+    "ai",
+    "claude"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "ora": "^8.1.0"
+  }
+}
