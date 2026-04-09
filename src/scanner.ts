@@ -9,7 +9,7 @@ export interface FileMeta {
   body: string;
 }
 
-function parseFrontmatter(raw: string, filePath: string, baseDir: string): FileMeta {
+export function parseFrontmatter(raw: string, filePath: string, baseDir: string): FileMeta {
   const relativePath = path.relative(baseDir, filePath);
   const match = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) {
@@ -45,14 +45,23 @@ function parseFrontmatter(raw: string, filePath: string, baseDir: string): FileM
   };
 }
 
-function collectMdFiles(dir: string): string[] {
+function collectMdFiles(dir: string, seen = new Set<string>()): string[] {
+  const real = fs.realpathSync(dir);
+  if (seen.has(real)) return [];
+  seen.add(real);
+
   const results: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name.startsWith(".")) continue;
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      results.push(...collectMdFiles(full));
-    } else if (entry.isFile() && entry.name.endsWith(".md")) {
+
+    const stat = entry.isSymbolicLink() ? fs.statSync(full) : null;
+    const isDir = entry.isDirectory() || (stat?.isDirectory() ?? false);
+    const isFile = entry.isFile() || (stat?.isFile() ?? false);
+
+    if (isDir) {
+      results.push(...collectMdFiles(full, seen));
+    } else if (isFile && entry.name.endsWith(".md")) {
       results.push(full);
     }
   }
