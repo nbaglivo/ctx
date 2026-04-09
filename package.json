@@ -19,6 +19,8 @@
     "build": "tsup",
     "typecheck": "tsc --noEmit",
     "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepublishOnly": "npm run build"
   },
   "keywords": [
@@ -36,7 +38,8 @@
   "devDependencies": {
     "@types/node": "^25.5.2",
     "tsup": "^8.0.0",
-    "typescript": "^5.4.0"
+    "typescript": "^5.4.0",
+    "vitest": "^4.1.4"
   },
   "dependencies": {
     "chalk": "^5.3.0",
